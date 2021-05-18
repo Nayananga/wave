@@ -13,9 +13,8 @@
 // limitations under the License.
 
 import * as Fluent from '@fluentui/react'
-import { B, S } from 'h2o-wave'
+import { S } from 'h2o-wave'
 import React from 'react'
-import { displayMixin } from './theme'
 
 /**
  * Create a message bar.
@@ -31,8 +30,6 @@ export interface MessageBar {
   text?: S
   /** An identifying name for this component. */
   name?: S
-  /** True if the component should be visible. Defaults to true. */
-  visible?: B
 }
 
 const
@@ -50,11 +47,6 @@ const
 export const
   XMessageBar = ({ model: m }: { model: MessageBar }) => (
     m.text?.length
-      ? (
-        <Fluent.MessageBar
-          data-test={m.name}
-          style={displayMixin(m.visible)}
-          messageBarType={toMessageBarType(m.type)} >{m.text}</Fluent.MessageBar>
-      )
+      ? <Fluent.MessageBar data-test={m.name} messageBarType={toMessageBarType(m.type)} >{m.text}</Fluent.MessageBar>
       : <div />
   )

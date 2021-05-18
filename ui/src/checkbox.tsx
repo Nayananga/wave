@@ -15,7 +15,6 @@
 import * as Fluent from '@fluentui/react'
 import { B, Id, S } from 'h2o-wave'
 import React from 'react'
-import { displayMixin } from './theme'
 import { bond, wave } from './ui'
 
 /**
@@ -47,8 +46,6 @@ export interface Checkbox {
   disabled?: B
   /** True if the form should be submitted when the checkbox value changes. */
   trigger?: B
-  /** True if the component should be visible. Defaults to true. */
-  visible?: B
   /** An optional tooltip message displayed when a user clicks the help icon to the right of the component. */
   tooltip?: S
 }
@@ -64,7 +61,6 @@ export const
       render = () => (
         <Fluent.Checkbox
           data-test={m.name}
-          style={displayMixin(m.visible)}
           inputProps={{ 'data-test': m.name } as any} // HACK: data-test does not work on root as of this version
           label={m.label}
           defaultIndeterminate={m.indeterminate}

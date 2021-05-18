@@ -12,12 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import { B, Model, Rec, S, unpack, xid } from 'h2o-wave'
+import { Model, Rec, S, unpack, xid } from 'h2o-wave'
 import React from 'react'
 import { stylesheet } from 'typestyle'
 import vegaEmbed from 'vega-embed'
 import { cards, grid } from './layout'
-import { displayMixin } from './theme'
 import { bond, debounce } from './ui'
 
 const
@@ -56,8 +55,6 @@ export interface VegaVisualization {
   height?: S
   /** An identifying name for this component. */
   name?: S
-  /** True if the component should be visible. Defaults to true. */
-  visible?: B
 }
 
 export const
@@ -106,11 +103,11 @@ export const
       dispose = () => window.removeEventListener('resize', onResize),
       render = () => {
         const
-          { name, width = 'auto', height = 'auto', visible } = state,
+          { name, width = 'auto', height = 'auto' } = state,
           style: React.CSSProperties = (width === 'auto' && height === 'auto')
             ? { flexGrow: 1 }
             : { width, height }
-        return <div data-test={name} className={css.plot} style={{ ...style, position: 'relative', ...displayMixin(visible) }} ref={ref} />
+        return <div data-test={name} className={css.plot} style={{ ...style, position: 'relative' }} ref={ref} />
       }
     window.addEventListener('resize', onResize)
 

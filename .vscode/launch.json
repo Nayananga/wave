@@ -64,6 +64,25 @@
         "-oidc-redirect-url",
         "http://localhost:10101/_auth/callback",
       ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug Wavegen",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "cwd": "${workspaceFolder}/tools/wavegen",
+      "args": [
+        "../../ui/src",
+        "../../py/h2o_wave",
+        "../../r/R"
+      ],
+      "preLaunchTask": "tsc: build - tools/wavegen/tsconfig.json",
+      "program": "build/wavegen.js",
+      "outFiles": [
+        "build/**/*.js"
+      ]
     }
   ]
 }

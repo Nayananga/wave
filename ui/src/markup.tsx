@@ -12,11 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import { B, Model, S } from 'h2o-wave'
+import { Model, S } from 'h2o-wave'
 import React from 'react'
 import { stylesheet } from 'typestyle'
 import { cards, grid } from './layout'
-import { displayMixin } from './theme'
 import { bond } from './ui'
 
 const
@@ -37,8 +36,6 @@ export interface Markup {
   content: S
   /** An identifying name for this component. */
   name?: S
-  /** True if the component should be visible. Defaults to true. */
-  visible?: B
 }
 
 /**
@@ -61,8 +58,8 @@ interface State {
 }
 
 export const
-  XMarkup = ({ model: { content, visible, name } }: { model: Markup }) => (
-    <div data-test={name} dangerouslySetInnerHTML={{ __html: content }} style={displayMixin(visible)} />
+  XMarkup = ({ model: { content, name } }: { model: Markup }) => (
+    <div data-test={name} dangerouslySetInnerHTML={{ __html: content }} />
   ),
   MarkupCard = ({ name, title, content }: { name: S, title: S, content: S }) => (
     <div data-test={name} className={css.card}>

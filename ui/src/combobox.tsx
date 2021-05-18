@@ -15,7 +15,6 @@
 import * as Fluent from '@fluentui/react'
 import { B, box, Id, S } from 'h2o-wave'
 import React from 'react'
-import { displayMixin } from './theme'
 import { bond, wave } from './ui'
 
 /**
@@ -46,8 +45,6 @@ export interface Combobox {
   error?: S
   /** True if this field is disabled. */
   disabled?: B
-  /** True if the component should be visible. Defaults to true. */
-  visible?: B
   /** An optional tooltip message displayed when a user clicks the help icon to the right of the component. */
   tooltip?: S
 }
@@ -67,7 +64,6 @@ export const
       render = () => (
         <Fluent.ComboBox
           data-test={m.name}
-          style={displayMixin(m.visible)}
           label={m.label}
           placeholder={m.placeholder}
           options={options}

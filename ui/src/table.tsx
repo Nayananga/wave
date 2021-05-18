@@ -18,7 +18,7 @@ import React from 'react'
 import { stylesheet } from 'typestyle'
 import { IconTableCellType, XIconTableCellType } from "./icon_table_cell_type"
 import { ProgressTableCellType, XProgressTableCellType } from "./progress_table_cell_type"
-import { cssVar, displayMixin, rem } from './theme'
+import { cssVar, rem } from './theme'
 import { bond, wave } from './ui'
 
 /** Defines cell content to be rendered instead of a simple text. */
@@ -98,8 +98,6 @@ export interface Table {
   values?: S[]
   /** Controls visibility of table rows when `multiple` is set to `True`. Defaults to 'on-hover'. */
   checkbox_visibility?: 'always' | 'on-hover' | 'hidden'
-  /** True if the component should be visible. Defaults to true. */
-  visible?: B
   /** An optional tooltip message displayed when a user clicks the help icon to the right of the component. */
   tooltip?: S
 }
@@ -495,7 +493,7 @@ export const
         </>
       ),
       render = () => (
-        <div data-test={m.name} style={{ position: 'relative', height: computeHeight(), ...displayMixin(m.visible) }}>
+        <div data-test={m.name} style={{ position: 'relative', height: computeHeight() }}>
           <Fluent.Stack horizontal horizontalAlign='space-between' >
             {m.groupable && <Fluent.Dropdown data-test='groupby' label='Group by' selectedKey={groupByKeyB()} onChange={onGroupByChange} options={groupByOptions} styles={{ root: { width: 300 } }} />}
             {!!searchableKeys.length && <Fluent.TextField data-test='search' label='Search' onChange={onSearchChange} value={searchStrB()} styles={{ root: { width: '50%' } }} />}

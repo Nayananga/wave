@@ -15,7 +15,6 @@
 import * as Fluent from '@fluentui/react'
 import { B, F, Id, S } from 'h2o-wave'
 import React from 'react'
-import { displayMixin } from './theme'
 import { bond, wave } from './ui'
 
 /**
@@ -39,8 +38,6 @@ export interface Spinbox {
   value?: F
   /** True if this field is disabled. */
   disabled?: B
-  /** True if the component should be visible. Defaults to true. */
-  visible?: B
   /** An optional tooltip message displayed when a user clicks the help icon to the right of the component. */
   tooltip?: S
 }
@@ -77,7 +74,6 @@ export const
       },
       render = () => (
         <Fluent.SpinButton
-          styles={{ root: displayMixin(m.visible) as Fluent.IStyle }}
           inputProps={{ 'data-test': m.name } as any} // HACK: data-test does not work on root as of this version
           label={m.label}
           min={min}

@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import { B, Model, Rec, S, unpack } from 'h2o-wave'
+import { Model, Rec, S, unpack } from 'h2o-wave'
 import Handlebars from 'handlebars'
 import React from 'react'
 import { cards, substitute } from './layout'
@@ -27,8 +27,6 @@ export interface Template {
   data?: Rec
   /** An identifying name for this component. */
   name?: S
-  /** True if the component should be visible. Defaults to true. */
-  visible?: B
 }
 
 /** Render dynamic content using an HTML template.*/
@@ -47,7 +45,7 @@ export const
       template = Handlebars.compile(m.content || ''),
       render = () => {
         const data = unpack<Rec>(m.data)
-        return <div data-test={m.name}><XMarkup model={{ content: template(data || {}), visible: m.visible }} /></div>
+        return <div data-test={m.name}><XMarkup model={{ content: template(data || {}) }} /></div>
       }
     return { render }
   }),

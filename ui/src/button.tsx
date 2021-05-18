@@ -17,7 +17,6 @@ import { B, Dict, Id, S } from 'h2o-wave'
 import React from 'react'
 import { stylesheet } from 'typestyle'
 import { Component } from './form'
-import { displayMixin } from './theme'
 import { XToolTip } from './tooltip'
 import { bond, wave } from './ui'
 
@@ -56,8 +55,6 @@ export interface Button {
   link?: B
   /** An optional icon to display next to the button label (not applicable for links). */
   icon?: S
-  /** True if the component should be visible. Defaults to true. */
-  visible?: B
   /** An optional tooltip message displayed when a user clicks the help icon to the right of the component. */
   tooltip?: S
 }
@@ -70,8 +67,6 @@ export interface Buttons {
   justify?: 'start' | 'end' | 'center' | 'between' | 'around'
   /** An identifying name for this component. */
   name?: S
-  /** True if the component should be visible. Defaults to true. */
-  visible?: B
 }
 
 
@@ -102,10 +97,12 @@ const
         wave.push()
       },
       render = () => {
+        // HACK: Our visibility logic in XComponents doesn't count with nested components, e.g. Butttons > Button.
+        const styles: Fluent.IButtonStyles = { root: (m as any).visible ?? true ? {} : { display: 'none' } }
         if (m.link) {
-          return <Fluent.Link data-test={m.name} disabled={m.disabled} onClick={onClick}>{m.label}</Fluent.Link>
+          return <Fluent.Link data-test={m.name} disabled={m.disabled} onClick={onClick} styles={styles}>{m.label}</Fluent.Link>
         }
-        const btnProps: Fluent.IButtonProps = { text: m.label, disabled: m.disabled, onClick, iconProps: { iconName: m.icon } }
+        const btnProps: Fluent.IButtonProps = { text: m.label, disabled: m.disabled, onClick, styles, iconProps: { iconName: m.icon } }
         return m.caption?.length
           ? m.primary
             ? <Fluent.CompoundButton {...btnProps} data-test={m.name} primary secondaryText={m.caption} />
@@ -125,13 +122,13 @@ export const
         </XToolTip>
       ))
     return (
-      <div data-test={m.name} className={css.buttons} style={displayMixin(m.visible)}>
+      <div data-test={m.name} className={css.buttons}>
         <Fluent.Stack horizontal horizontalAlign={justifications[m.justify || '']} tokens={{ childrenGap: 10 }}>{children}</Fluent.Stack>
       </div>
     )
   },
   XStandAloneButton = ({ model: m }: { model: Button }) => (
-    <div className={css.buttons} style={displayMixin(m.visible)}>
+    <div className={css.buttons}>
       <XButton key={m.name} model={m}>{m.label}</XButton>
     </div>
   )

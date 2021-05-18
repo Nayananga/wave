@@ -16,7 +16,6 @@ import * as Fluent from '@fluentui/react'
 import { B, box, Id, S } from 'h2o-wave'
 import React from 'react'
 import { Choice } from './choice_group'
-import { displayMixin } from './theme'
 import { bond, wave } from './ui'
 
 /**
@@ -51,8 +50,6 @@ export interface Dropdown {
   disabled?: B
   /** True if the form should be submitted when the dropdown value changes. */
   trigger?: B
-  /** True if the component should be visible. Defaults to true. */
-  visible?: B
   /** An optional tooltip message displayed when a user clicks the help icon to the right of the component. */
   tooltip?: S
 }
@@ -108,7 +105,7 @@ export const
         onChange()
       },
       render = () =>
-        <div style={displayMixin(m.visible)}>
+        <>
           <Fluent.Dropdown
             data-test={m.name}
             label={m.label}
@@ -129,7 +126,7 @@ export const
               </Fluent.Text>
             </div>
           }
-        </div>
+        </>
 
     return { render, selectedOptionsB }
   })

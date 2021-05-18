@@ -133,6 +133,7 @@ const
   },
   reservedWords = ['view', 'box'],
   boxComment = 'A string indicating how to place this component on the page.',
+  visibleComment = 'True if the component should be visible. Defaults to true.',
   boxTags: Tag[] = [{ name: 't', value: 'box' }, { name: 'value', value: JSON.stringify({ zone: 'Body' }) }],
   commandsComment = 'Contextual menu commands for this component.',
   noComment = 'No documentation available.',
@@ -261,7 +262,7 @@ const
     }
     throw new CodeGenError(`unsupported member kind on ${component}.${typename}`)
   },
-  collectTypes = (component: S, file: File, sourceFile: ts.SourceFile) => {
+  collectTypes = (component: S, file: File, sourceFile: ts.SourceFile, componentsMap: Map<S, B>) => {
     ts.forEachChild(sourceFile, (node) => {
       switch (node.kind) {
         case ts.SyntaxKind.InterfaceDeclaration: {
@@ -284,13 +285,16 @@ const
           // All cards can optionally have a contextual menu.
           if (isRoot) members.push({ t: MemberT.Repeated, name: 'commands', typeName: 'Command', isOptional: true, comments: [commandsComment], tags: [], isPacked: false })
 
+          // All components must have visible defined.
+          if (componentsMap.has(snakeCase(nodeName))) members.push({ t: MemberT.Singular, name: 'visible', typeName: 'B', isOptional: true, comments: [visibleComment], tags: [], isPacked: false })
+
           const areAllMembersOptional = !members.filter(m => !m.isOptional).length // all members are optional?
           file.types.push({ name: typeName, file: file.name, comments, tags, members, isRoot, areAllMembersOptional, isUnion: false })
         }
       }
     })
   },
-  processFile = (files: File[], filepath: S) => {
+  processFile = (files: File[], filepath: S, componentsMap: Map<S, B>) => {
     console.log(`Parsing ${filepath}`)
     const
       component = path.parse(filepath).name,
@@ -301,17 +305,25 @@ const
         ts.ScriptTarget.ES2015,
         true
       )
-    collectTypes(component, file, sourceFile)
+    collectTypes(component, file, sourceFile, componentsMap)
     files.push(file)
   },
   processDir = (files: File[], dirpath: S) => {
     const
       ignored = toLookup(fs.readFileSync(path.join(dirpath, '.wavegen'), 'utf8').split('\n').map(x => x.trim())),
-      filenames = fs.readdirSync(dirpath)
+      filenames = fs.readdirSync(dirpath),
+      formPath = path.join(dirpath, 'form.tsx'),
+      componentInterface = ts.createSourceFile(formPath, fs.readFileSync(formPath, 'utf8'), ts.ScriptTarget.ES2015, true)
+        .getChildren().find(({ kind }) => kind === ts.SyntaxKind.SyntaxList)
+        ?.getChildren().find(c => c.kind === ts.SyntaxKind.InterfaceDeclaration && (c as ts.InterfaceDeclaration).name.getText() === 'Component'),
+      componentsMap = (componentInterface as ts.InterfaceDeclaration)?.members?.reduce((map, { name }) => {
+        if (name) map.set(name.getText(), true)
+        return map
+      }, new Map<S, B>()) || new Map<S, B>()
     for (const filename of filenames) {
       if (ignored[filename]) continue
       const filepath = path.join(dirpath, filename)
-      if (fs.statSync(filepath).isFile()) processFile(files, filepath)
+      if (fs.statSync(filepath).isFile()) processFile(files, filepath, componentsMap)
     }
   },
   pyTypeMappings: Dict<S> = {
@@ -792,13 +804,13 @@ const
         printLicense()
         p('')
         p(`.recursive_null_extractor <- function(x){`)
-        p(`     attribute_holder <- attributes(x)$class`)  
+        p(`     attribute_holder <- attributes(x)$class`)
         p(`     x <- lapply(x,function(y){`)
-        p(`          if(is.list(y)){`)  
-        p(`             return(.recursive_null_extractor(y))`)        
+        p(`          if(is.list(y)){`)
+        p(`             return(.recursive_null_extractor(y))`)
         p(`          }`)
         p(`          else {`)
-        p(`             return(y)`)        
+        p(`             return(y)`)
         p(`          }`)
         p(`     })`)
         p(`     x[sapply(x,is.null)] <- NULL`)

@@ -256,153 +256,153 @@ def footer_card(
 def text(
         content: str,
         size: Optional[str] = None,
-        visible: Optional[bool] = None,
         tooltip: Optional[str] = None,
         name: Optional[str] = None,
+        visible: Optional[bool] = None,
 ) -> Component:
     """Create text content.
 
     Args:
         content: The text content.
         size: The font size of the text content. One of 'xl', 'l', 'm', 's', 'xs'. See enum h2o_wave.ui.TextSize.
-        visible: True if the component should be visible. Defaults to true.
         tooltip: Tooltip message.
         name: An identifying name for this component.
+        visible: True if the component should be visible. Defaults to true.
     Returns:
         A `h2o_wave.types.Text` instance.
     """
     return Component(text=Text(
         content,
         size,
-        visible,
         tooltip,
         name,
+        visible,
     ))
 
 
 def text_xl(
         content: str,
-        visible: Optional[bool] = None,
         tooltip: Optional[str] = None,
         commands: Optional[List[Command]] = None,
         name: Optional[str] = None,
+        visible: Optional[bool] = None,
 ) -> Component:
     """Create extra-large sized text content.
 
     Args:
         content: The text content.
-        visible: True if the component should be visible. Defaults to true.
         tooltip: Tooltip message.
         commands: Contextual menu commands for this component.
         name: An identifying name for this component.
+        visible: True if the component should be visible. Defaults to true.
     Returns:
         A `h2o_wave.types.TextXl` instance.
     """
     return Component(text_xl=TextXl(
         content,
-        visible,
         tooltip,
         commands,
         name,
+        visible,
     ))
 
 
 def text_l(
         content: str,
-        visible: Optional[bool] = None,
         tooltip: Optional[str] = None,
         commands: Optional[List[Command]] = None,
         name: Optional[str] = None,
+        visible: Optional[bool] = None,
 ) -> Component:
     """Create large sized text content.
 
     Args:
         content: The text content.
-        visible: True if the component should be visible. Defaults to true.
         tooltip: Tooltip message.
         commands: Contextual menu commands for this component.
         name: An identifying name for this component.
+        visible: True if the component should be visible. Defaults to true.
     Returns:
         A `h2o_wave.types.TextL` instance.
     """
     return Component(text_l=TextL(
         content,
-        visible,
         tooltip,
         commands,
         name,
+        visible,
     ))
 
 
 def text_m(
         content: str,
-        visible: Optional[bool] = None,
         tooltip: Optional[str] = None,
         name: Optional[str] = None,
+        visible: Optional[bool] = None,
 ) -> Component:
     """Create medium sized text content.
 
     Args:
         content: The text content.
-        visible: True if the component should be visible. Defaults to true.
         tooltip: Tooltip message.
         name: An identifying name for this component.
+        visible: True if the component should be visible. Defaults to true.
     Returns:
         A `h2o_wave.types.TextM` instance.
     """
     return Component(text_m=TextM(
         content,
-        visible,
         tooltip,
         name,
+        visible,
     ))
 
 
 def text_s(
         content: str,
-        visible: Optional[bool] = None,
         tooltip: Optional[str] = None,
         name: Optional[str] = None,
+        visible: Optional[bool] = None,
 ) -> Component:
     """Create small sized text content.
 
     Args:
         content: The text content.
-        visible: True if the component should be visible. Defaults to true.
         tooltip: Tooltip message.
         name: An identifying name for this component.
+        visible: True if the component should be visible. Defaults to true.
     Returns:
         A `h2o_wave.types.TextS` instance.
     """
     return Component(text_s=TextS(
         content,
-        visible,
         tooltip,
         name,
+        visible,
     ))
 
 
 def text_xs(
         content: str,
-        visible: Optional[bool] = None,
         tooltip: Optional[str] = None,
         name: Optional[str] = None,
+        visible: Optional[bool] = None,
 ) -> Component:
     """Create extra-small sized text content.
 
     Args:
         content: The text content.
-        visible: True if the component should be visible. Defaults to true.
         tooltip: Tooltip message.
         name: An identifying name for this component.
+        visible: True if the component should be visible. Defaults to true.
     Returns:
         A `h2o_wave.types.TextXs` instance.
     """
     return Component(text_xs=TextXs(
         content,
-        visible,
         tooltip,
         name,
+        visible,
     ))
 
 
@@ -410,9 +410,9 @@ def label(
         label: str,
         required: Optional[bool] = None,
         disabled: Optional[bool] = None,
-        visible: Optional[bool] = None,
         tooltip: Optional[str] = None,
         name: Optional[str] = None,
+        visible: Optional[bool] = None,
 ) -> Component:
     """Create a label.
 
@@ -426,9 +426,9 @@ def label(
         label: The text displayed on the label.
         required: True if the field is required.
         disabled: True if the label should be disabled.
-        visible: True if the component should be visible. Defaults to true.
         tooltip: An optional tooltip message displayed when a user clicks the help icon to the right of the component.
         name: An identifying name for this component.
+        visible: True if the component should be visible. Defaults to true.
     Returns:
         A `h2o_wave.types.Label` instance.
     """
@@ -436,9 +436,9 @@ def label(
         label,
         required,
         disabled,
-        visible,
         tooltip,
         name,
+        visible,
     ))
 
 
@@ -469,9 +469,9 @@ def progress(
         label: str,
         caption: Optional[str] = None,
         value: Optional[float] = None,
-        visible: Optional[bool] = None,
         tooltip: Optional[str] = None,
         name: Optional[str] = None,
+        visible: Optional[bool] = None,
 ) -> Component:
     """Create a progress bar.
 
@@ -497,9 +497,9 @@ def progress(
         label: The text displayed above the bar.
         caption: The text displayed below the bar.
         value: The progress, between 0.0 and 1.0, or -1 (default) if indeterminate.
-        visible: True if the component should be visible. Defaults to true.
         tooltip: An optional tooltip message displayed when a user clicks the help icon to the right of the component.
         name: An identifying name for this component.
+        visible: True if the component should be visible. Defaults to true.
     Returns:
         A `h2o_wave.types.Progress` instance.
     """
@@ -507,9 +507,9 @@ def progress(
         label,
         caption,
         value,
-        visible,
         tooltip,
         name,
+        visible,
     ))
 
 
@@ -558,8 +558,8 @@ def textbox(
         password: Optional[bool] = None,
         trigger: Optional[bool] = None,
         height: Optional[str] = None,
-        visible: Optional[bool] = None,
         tooltip: Optional[str] = None,
+        visible: Optional[bool] = None,
 ) -> Component:
     """Create a text box.
 
@@ -584,8 +584,8 @@ def textbox(
         password: True if the text box should hide text content.
         trigger: True if the form should be submitted when the text value changes.
         height: The height of the text box, e.g. '100px'. Applicable only if `multiline` is true.
-        visible: True if the component should be visible. Defaults to true.
         tooltip: An optional tooltip message displayed when a user clicks the help icon to the right of the component.
+        visible: True if the component should be visible. Defaults to true.
     Returns:
         A `h2o_wave.types.Textbox` instance.
     """
@@ -606,8 +606,8 @@ def textbox(
         password,
         trigger,
         height,
-        visible,
         tooltip,
+        visible,
     ))
 
 
@@ -618,8 +618,8 @@ def checkbox(
         indeterminate: Optional[bool] = None,
         disabled: Optional[bool] = None,
         trigger: Optional[bool] = None,
-        visible: Optional[bool] = None,
         tooltip: Optional[str] = None,
+        visible: Optional[bool] = None,
 ) -> Component:
     """Create a checkbox.
 
@@ -643,8 +643,8 @@ def checkbox(
         indeterminate: True if the selection is indeterminate (neither selected nor unselected).
         disabled: True if the checkbox is disabled.
         trigger: True if the form should be submitted when the checkbox value changes.
-        visible: True if the component should be visible. Defaults to true.
         tooltip: An optional tooltip message displayed when a user clicks the help icon to the right of the component.
+        visible: True if the component should be visible. Defaults to true.
     Returns:
         A `h2o_wave.types.Checkbox` instance.
     """
@@ -655,8 +655,8 @@ def checkbox(
         indeterminate,
         disabled,
         trigger,
-        visible,
         tooltip,
+        visible,
     ))
 
 
@@ -666,8 +666,8 @@ def toggle(
         value: Optional[bool] = None,
         disabled: Optional[bool] = None,
         trigger: Optional[bool] = None,
-        visible: Optional[bool] = None,
         tooltip: Optional[str] = None,
+        visible: Optional[bool] = None,
 ) -> Component:
     """Create a toggle.
     Toggles represent a physical switch that allows users to turn things on or off.
@@ -684,8 +684,8 @@ def toggle(
         value: True if selected, False if unselected.
         disabled: True if the checkbox is disabled.
         trigger: True if the form should be submitted when the toggle value changes.
-        visible: True if the component should be visible. Defaults to true.
         tooltip: An optional tooltip message displayed when a user clicks the help icon to the right of the component.
+        visible: True if the component should be visible. Defaults to true.
     Returns:
         A `h2o_wave.types.Toggle` instance.
     """
@@ -695,8 +695,8 @@ def toggle(
         value,
         disabled,
         trigger,
-        visible,
         tooltip,
+        visible,
     ))
 
 
@@ -728,8 +728,8 @@ def choice_group(
         choices: Optional[List[Choice]] = None,
         required: Optional[bool] = None,
         trigger: Optional[bool] = None,
-        visible: Optional[bool] = None,
         tooltip: Optional[str] = None,
+        visible: Optional[bool] = None,
 ) -> Component:
     """Create a choice group.
     The choice group component, also known as radio buttons, let users select one option from two or more choices.
@@ -749,8 +749,8 @@ def choice_group(
         choices: The choices to be presented.
         required: True if this field is required.
         trigger: True if the form should be submitted when the selection changes.
-        visible: True if the component should be visible. Defaults to true.
         tooltip: An optional tooltip message displayed when a user clicks the help icon to the right of the component.
+        visible: True if the component should be visible. Defaults to true.
     Returns:
         A `h2o_wave.types.ChoiceGroup` instance.
     """
@@ -761,8 +761,8 @@ def choice_group(
         choices,
         required,
         trigger,
-        visible,
         tooltip,
+        visible,
     ))
 
 
@@ -772,8 +772,8 @@ def checklist(
         values: Optional[List[str]] = None,
         choices: Optional[List[Choice]] = None,
         trigger: Optional[bool] = None,
-        visible: Optional[bool] = None,
         tooltip: Optional[str] = None,
+        visible: Optional[bool] = None,
 ) -> Component:
     """Create a set of checkboxes.
     Use this for multi-select scenarios in which a user chooses one or more items from a group of
@@ -785,8 +785,8 @@ def checklist(
         values: The names of the selected choices.
         choices: The choices to be presented.
         trigger: True if the form should be submitted when the checklist value changes.
-        visible: True if the component should be visible. Defaults to true.
         tooltip: An optional tooltip message displayed when a user clicks the help icon to the right of the component.
+        visible: True if the component should be visible. Defaults to true.
     Returns:
         A `h2o_wave.types.Checklist` instance.
     """
@@ -796,8 +796,8 @@ def checklist(
         values,
         choices,
         trigger,
-        visible,
         tooltip,
+        visible,
     ))
 
 
@@ -811,8 +811,8 @@ def dropdown(
         required: Optional[bool] = None,
         disabled: Optional[bool] = None,
         trigger: Optional[bool] = None,
-        visible: Optional[bool] = None,
         tooltip: Optional[str] = None,
+        visible: Optional[bool] = None,
 ) -> Component:
     """Create a dropdown.
 
@@ -836,8 +836,8 @@ def dropdown(
         required: True if this is a required field.
         disabled: True if this field is disabled.
         trigger: True if the form should be submitted when the dropdown value changes.
-        visible: True if the component should be visible. Defaults to true.
         tooltip: An optional tooltip message displayed when a user clicks the help icon to the right of the component.
+        visible: True if the component should be visible. Defaults to true.
     Returns:
         A `h2o_wave.types.Dropdown` instance.
     """
@@ -851,8 +851,8 @@ def dropdown(
         required,
         disabled,
         trigger,
-        visible,
         tooltip,
+        visible,
     ))
 
 
@@ -864,8 +864,8 @@ def combobox(
         choices: Optional[List[str]] = None,
         error: Optional[str] = None,
         disabled: Optional[bool] = None,
-        visible: Optional[bool] = None,
         tooltip: Optional[str] = None,
+        visible: Optional[bool] = None,
 ) -> Component:
     """Create a combobox.
 
@@ -887,8 +887,8 @@ def combobox(
         choices: The choices to be presented.
         error: Text to be displayed as an error below the text box.
         disabled: True if this field is disabled.
-        visible: True if the component should be visible. Defaults to true.
         tooltip: An optional tooltip message displayed when a user clicks the help icon to the right of the component.
+        visible: True if the component should be visible. Defaults to true.
     Returns:
         A `h2o_wave.types.Combobox` instance.
     """
@@ -900,8 +900,8 @@ def combobox(
         choices,
         error,
         disabled,
-        visible,
         tooltip,
+        visible,
     ))
 
 
@@ -914,8 +914,8 @@ def slider(
         value: Optional[float] = None,
         disabled: Optional[bool] = None,
         trigger: Optional[bool] = None,
-        visible: Optional[bool] = None,
         tooltip: Optional[str] = None,
+        visible: Optional[bool] = None,
 ) -> Component:
     """Create a slider.
 
@@ -941,8 +941,8 @@ def slider(
         value: The current value of the slider.
         disabled: True if this field is disabled.
         trigger: True if the form should be submitted when the slider value changes.
-        visible: True if the component should be visible. Defaults to true.
         tooltip: An optional tooltip message displayed when a user clicks the help icon to the right of the component.
+        visible: True if the component should be visible. Defaults to true.
     Returns:
         A `h2o_wave.types.Slider` instance.
     """
@@ -955,8 +955,8 @@ def slider(
         value,
         disabled,
         trigger,
-        visible,
         tooltip,
+        visible,
     ))
 
 
@@ -968,8 +968,8 @@ def spinbox(
         step: Optional[float] = None,
         value: Optional[float] = None,
         disabled: Optional[bool] = None,
-        visible: Optional[bool] = None,
         tooltip: Optional[str] = None,
+        visible: Optional[bool] = None,
 ) -> Component:
     """Create a spinbox.
 
@@ -984,8 +984,8 @@ def spinbox(
         step: The difference between two adjacent values of the spinbox.
         value: The current value of the spinbox.
         disabled: True if this field is disabled.
-        visible: True if the component should be visible. Defaults to true.
         tooltip: An optional tooltip message displayed when a user clicks the help icon to the right of the component.
+        visible: True if the component should be visible. Defaults to true.
     Returns:
         A `h2o_wave.types.Spinbox` instance.
     """
@@ -997,8 +997,8 @@ def spinbox(
         step,
         value,
         disabled,
-        visible,
         tooltip,
+        visible,
     ))
 
 
@@ -1009,8 +1009,8 @@ def date_picker(
         value: Optional[str] = None,
         disabled: Optional[bool] = None,
         trigger: Optional[bool] = None,
-        visible: Optional[bool] = None,
         tooltip: Optional[str] = None,
+        visible: Optional[bool] = None,
 ) -> Component:
     """Create a date picker.
 
@@ -1023,8 +1023,8 @@ def date_picker(
         value: The date value in YYYY-MM-DD format.
         disabled: True if this field is disabled.
         trigger: True if the form should be submitted when the datepicker value changes.
-        visible: True if the component should be visible. Defaults to true.
         tooltip: An optional tooltip message displayed when a user clicks the help icon to the right of the component.
+        visible: True if the component should be visible. Defaults to true.
     Returns:
         A `h2o_wave.types.DatePicker` instance.
     """
@@ -1035,8 +1035,8 @@ def date_picker(
         value,
         disabled,
         trigger,
-        visible,
         tooltip,
+        visible,
     ))
 
 
@@ -1045,9 +1045,9 @@ def color_picker(
         label: Optional[str] = None,
         value: Optional[str] = None,
         choices: Optional[List[str]] = None,
-        visible: Optional[bool] = None,
         trigger: Optional[bool] = None,
         tooltip: Optional[str] = None,
+        visible: Optional[bool] = None,
 ) -> Component:
     """Create a color picker.
 
@@ -1059,9 +1059,9 @@ def color_picker(
         label: Text to be displayed alongside the component.
         value: The selected color (CSS-compatible string).
         choices: A list of colors (CSS-compatible strings) to limit color choices to.
-        visible: True if the component should be visible. Defaults to true.
         trigger: True if the form should be submitted when the color picker value changes.
         tooltip: An optional tooltip message displayed when a user clicks the help icon to the right of the component.
+        visible: True if the component should be visible. Defaults to true.
     Returns:
         A `h2o_wave.types.ColorPicker` instance.
     """
@@ -1070,9 +1070,9 @@ def color_picker(
         label,
         value,
         choices,
-        visible,
         trigger,
         tooltip,
+        visible,
     ))
 
 
@@ -1085,8 +1085,8 @@ def button(
         disabled: Optional[bool] = None,
         link: Optional[bool] = None,
         icon: Optional[str] = None,
-        visible: Optional[bool] = None,
         tooltip: Optional[str] = None,
+        visible: Optional[bool] = None,
 ) -> Component:
     """Create a button.
 
@@ -1114,8 +1114,8 @@ def button(
         disabled: True if the button should be disabled.
         link: True if the button should be rendered as link text and not a standard button.
         icon: An optional icon to display next to the button label (not applicable for links).
-        visible: True if the component should be visible. Defaults to true.
         tooltip: An optional tooltip message displayed when a user clicks the help icon to the right of the component.
+        visible: True if the component should be visible. Defaults to true.
     Returns:
         A `h2o_wave.types.Button` instance.
     """
@@ -1128,8 +1128,8 @@ def button(
         disabled,
         link,
         icon,
-        visible,
         tooltip,
+        visible,
     ))
 
 
@@ -1165,8 +1165,8 @@ def file_upload(
         max_file_size: Optional[float] = None,
         max_size: Optional[float] = None,
         height: Optional[str] = None,
-        visible: Optional[bool] = None,
         tooltip: Optional[str] = None,
+        visible: Optional[bool] = None,
 ) -> Component:
     """Create a file upload component.
     A file upload component allows a user to browse, select and upload one or more files.
@@ -1179,8 +1179,8 @@ def file_upload(
         max_file_size: Maximum allowed size (Mb) per file. Defaults to no limit.
         max_size: Maximum allowed size (Mb) for all files combined. Defaults to no limit.
         height: The height of the file upload, e.g. '400px', '50%', etc.
-        visible: True if the component should be visible. Defaults to true.
         tooltip: An optional tooltip message displayed when a user clicks the help icon to the right of the component.
+        visible: True if the component should be visible. Defaults to true.
     Returns:
         A `h2o_wave.types.FileUpload` instance.
     """
@@ -1192,8 +1192,8 @@ def file_upload(
         max_file_size,
         max_size,
         height,
-        visible,
         tooltip,
+        visible,
     ))
 
 
@@ -1306,8 +1306,8 @@ def table(
         height: Optional[str] = None,
         values: Optional[List[str]] = None,
         checkbox_visibility: Optional[str] = None,
-        visible: Optional[bool] = None,
         tooltip: Optional[str] = None,
+        visible: Optional[bool] = None,
 ) -> Component:
     """Create an interactive table.
 
@@ -1336,8 +1336,8 @@ def table(
         height: The height of the table, e.g. '400px', '50%', etc.
         values: The names of the selected rows. If this parameter is set, multiple selections will be allowed (`multiple` is assumed to be `True`).
         checkbox_visibility: Controls visibility of table rows when `multiple` is set to `True`. Defaults to 'on-hover'. One of 'always', 'on-hover', 'hidden'. See enum h2o_wave.ui.TableCheckboxVisibility.
-        visible: True if the component should be visible. Defaults to true.
         tooltip: An optional tooltip message displayed when a user clicks the help icon to the right of the component.
+        visible: True if the component should be visible. Defaults to true.
     Returns:
         A `h2o_wave.types.Table` instance.
     """
@@ -1352,8 +1352,8 @@ def table(
         height,
         values,
         checkbox_visibility,
-        visible,
         tooltip,
+        visible,
     ))
 
 
@@ -1363,10 +1363,10 @@ def link(
         disabled: Optional[bool] = None,
         download: Optional[bool] = None,
         button: Optional[bool] = None,
-        visible: Optional[bool] = None,
         target: Optional[str] = None,
         tooltip: Optional[str] = None,
         name: Optional[str] = None,
+        visible: Optional[bool] = None,
 ) -> Component:
     """Create a hyperlink.
 
@@ -1380,10 +1380,10 @@ def link(
         disabled: True if the link should be disabled.
         download: True if the link should prompt the user to save the linked URL instead of navigating to it. Works only if `button` is false.
         button: True if the link should be rendered as a button.
-        visible: True if the component should be visible. Defaults to true.
         target: Where to display the link. Setting this to an empty string or `'_blank'` opens the link in a new tab or window.
         tooltip: An optional tooltip message displayed when a user clicks the help icon to the right of the component.
         name: An identifying name for this component.
+        visible: True if the component should be visible. Defaults to true.
     Returns:
         A `h2o_wave.types.Link` instance.
     """
@@ -1393,10 +1393,10 @@ def link(
         disabled,
         download,
         button,
-        visible,
         target,
         tooltip,
         name,
+        visible,
     ))
 
 
@@ -1425,8 +1425,8 @@ def tabs(
         name: str,
         value: Optional[str] = None,
         items: Optional[List[Tab]] = None,
-        visible: Optional[bool] = None,
         link: Optional[bool] = None,
+        visible: Optional[bool] = None,
 ) -> Component:
     """Create a tab bar.
 
@@ -1434,8 +1434,8 @@ def tabs(
         name: An identifying name for this component.
         value: The name of the tab to select.
         items: The tabs in this tab bar.
-        visible: True if the component should be visible. Defaults to true.
         link: True if tabs should be rendered as links instead of buttons.
+        visible: True if the component should be visible. Defaults to true.
     Returns:
         A `h2o_wave.types.Tabs` instance.
     """
@@ -1443,8 +1443,8 @@ def tabs(
         name,
         value,
         items,
-        visible,
         link,
+        visible,
     ))
 
 
@@ -1559,9 +1559,9 @@ def picker(
         values: Optional[List[str]] = None,
         max_choices: Optional[int] = None,
         disabled: Optional[bool] = None,
-        visible: Optional[bool] = None,
         trigger: Optional[bool] = None,
         tooltip: Optional[str] = None,
+        visible: Optional[bool] = None,
 ) -> Component:
     """Create a picker.
     Pickers are used to select one or more choices, such as tags or files, from a list.
@@ -1574,9 +1574,9 @@ def picker(
         values: The names of the selected choices.
         max_choices: Maximum number of selectable choices. Defaults to no limit.
         disabled: Controls whether the picker should be disabled or not.
-        visible: True if the component should be visible. Defaults to true.
         trigger: True if the form should be submitted when the picker value changes.
         tooltip: An optional tooltip message displayed when a user clicks the help icon to the right of the component.
+        visible: True if the component should be visible. Defaults to true.
     Returns:
         A `h2o_wave.types.Picker` instance.
     """
@@ -1587,9 +1587,9 @@ def picker(
         values,
         max_choices,
         disabled,
-        visible,
         trigger,
         tooltip,
+        visible,
     ))
 
 
@@ -1603,8 +1603,8 @@ def range_slider(
         max_value: Optional[float] = None,
         disabled: Optional[bool] = None,
         trigger: Optional[bool] = None,
-        visible: Optional[bool] = None,
         tooltip: Optional[str] = None,
+        visible: Optional[bool] = None,
 ) -> Component:
     """Create a range slider.
 
@@ -1622,8 +1622,8 @@ def range_slider(
         max_value: The upper bound of the selected range.
         disabled: True if this field is disabled.
         trigger: True if the form should be submitted when the slider value changes.
-        visible: True if the component should be visible. Defaults to true.
         tooltip: An optional tooltip message displayed when a user clicks the help icon to the right of the component.
+        visible: True if the component should be visible. Defaults to true.
     Returns:
         A `h2o_wave.types.RangeSlider` instance.
     """
@@ -1637,8 +1637,8 @@ def range_slider(
         max_value,
         disabled,
         trigger,
-        visible,
         tooltip,
+        visible,
     ))
 
 
@@ -1666,8 +1666,8 @@ def step(
 def stepper(
         name: str,
         items: List[Step],
-        visible: Optional[bool] = None,
         tooltip: Optional[str] = None,
+        visible: Optional[bool] = None,
 ) -> Component:
     """Create a component that displays a sequence of steps in a process.
     The steps keep users informed about where they are in the process and how much is left to complete.
@@ -1675,16 +1675,16 @@ def stepper(
     Args:
         name: An identifying name for this component.
         items: The sequence of steps to be displayed.
-        visible: True if the component should be visible. Defaults to true.
         tooltip: An optional tooltip message displayed when a user clicks the help icon to the right of the component.
+        visible: True if the component should be visible. Defaults to true.
     Returns:
         A `h2o_wave.types.Stepper` instance.
     """
     return Component(stepper=Stepper(
         name,
         items,
-        visible,
         tooltip,
+        visible,
     ))
 
 
@@ -1890,8 +1890,8 @@ def visualization(
         width: Optional[str] = None,
         height: Optional[str] = None,
         name: Optional[str] = None,
-        visible: Optional[bool] = None,
         events: Optional[List[str]] = None,
+        visible: Optional[bool] = None,
 ) -> Component:
     """Create a visualization for display inside a form.
 
@@ -1901,8 +1901,8 @@ def visualization(
         width: The width of the visualization. Defaults to 100%.
         height: The hight of the visualization. Defaults to 300px.
         name: An identifying name for this component.
-        visible: True if the component should be visible. Defaults to true.
         events: The events to capture on this visualization.
+        visible: True if the component should be visible. Defaults to true.
     Returns:
         A `h2o_wave.types.Visualization` instance.
     """
@@ -1912,8 +1912,8 @@ def visualization(
         width,
         height,
         name,
-        visible,
         events,
+        visible,
     ))
 
 
@@ -1978,6 +1978,7 @@ def stats(
         items: List[Stat],
         justify: Optional[str] = None,
         inset: Optional[bool] = None,
+        visible: Optional[bool] = None,
 ) -> Component:
     """Create a set of stats laid out horizontally.
 
@@ -1985,6 +1986,7 @@ def stats(
         items: The individual stats to be displayed.
         justify: Specifies how to lay out the individual stats. Defaults to 'start'. One of 'start', 'end', 'center', 'between', 'around'. See enum h2o_wave.ui.StatsJustify.
         inset: Whether to display the stats with a contrasting background.
+        visible: True if the component should be visible. Defaults to true.
     Returns:
         A `h2o_wave.types.Stats` instance.
     """
@@ -1992,6 +1994,7 @@ def stats(
         items,
         justify,
         inset,
+        visible,
     ))
 
 
@@ -1999,6 +2002,7 @@ def inline(
         items: List[Component],
         justify: Optional[str] = None,
         inset: Optional[bool] = None,
+        visible: Optional[bool] = None,
 ) -> Component:
     """Create an inline (horizontal) list of components.
 
@@ -2006,6 +2010,7 @@ def inline(
         items: The components laid out inline.
         justify: Specifies how to lay out the individual components. Defaults to 'start'. One of 'start', 'end'. See enum h2o_wave.ui.InlineJustify.
         inset: Whether to display the components inset from the parent form, with a contrasting background.
+        visible: True if the component should be visible. Defaults to true.
     Returns:
         A `h2o_wave.types.Inline` instance.
     """
@@ -2013,6 +2018,7 @@ def inline(
         items,
         justify,
         inset,
+        visible,
     ))
 
 
@@ -2021,6 +2027,7 @@ def image(
         type: Optional[str] = None,
         image: Optional[str] = None,
         path: Optional[str] = None,
+        visible: Optional[bool] = None,
 ) -> Component:
     """Create an image.
 
@@ -2029,6 +2036,7 @@ def image(
         type: The image MIME subtype. One of `apng`, `bmp`, `gif`, `x-icon`, `jpeg`, `png`, `webp`. Required only if `image` is set.
         image: Image data, base64-encoded.
         path: The path or URL or data URL of the image, e.g. `/foo.png` or `http://example.com/foo.png` or `data:image/png;base64,???`.
+        visible: True if the component should be visible. Defaults to true.
     Returns:
         A `h2o_wave.types.Image` instance.
     """
@@ -2037,6 +2045,7 @@ def image(
         type,
         image,
         path,
+        visible,
     ))
 
 
