@@ -104,7 +104,7 @@ export const
         try {
           const makeRequest = new Promise<XMLHttpRequest>((resolve, reject) => {
             const xhr = new XMLHttpRequest()
-            xhr.open("POST", "/_f")
+            xhr.open("POST", "/f")
             xhr.upload.onprogress = e => percentCompleteB(e.loaded / e.total)
             xhr.send(formData)
             xhr.onreadystatechange = () => {
